@@ -1,0 +1,13 @@
+# editorconfig.org
+root = true
+
+[*]
+indent = 2
+indent_styles = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
