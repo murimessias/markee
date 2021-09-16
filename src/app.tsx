@@ -1,14 +1,12 @@
-import styled, { css } from 'styled-components/macro'
+import { Grid } from 'components/layout'
 
 const App = () => {
-  return <Title>App</Title>
+  return (
+    <Grid>
+      <div>Sidebar</div>
+      <div>Content</div>
+    </Grid>
+  )
 }
-
-const Title = styled.h1`
-  ${({ theme }) => css`
-    background: ${theme.colors.black};
-    color: ${theme.colors.primary};
-  `}
-`
 
 export { App }
