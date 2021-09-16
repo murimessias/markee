@@ -25,6 +25,8 @@ declare module 'styled-components' {
         lg: string
         xl: string
         '2xl': string
+        '3xl': string
+        '4xl': string
       },
     },
   }

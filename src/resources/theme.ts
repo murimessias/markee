@@ -26,6 +26,8 @@ export const theme: DefaultTheme = {
       lg: '1.8rem',
       xl: '2.0rem',
       '2xl': '2.8rem',
+      '3xl': '3.2rem',
+      '4xl': '3.6rem',
     },
   },
 }
