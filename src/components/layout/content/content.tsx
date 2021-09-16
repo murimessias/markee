@@ -1,3 +1,4 @@
+import { Input as FileName, TextArea as FileEdit } from 'components/forms'
 import { FileIcon } from 'ui/icons'
 
 // Styles
@@ -11,11 +12,11 @@ const Content = () => (
           <FileIcon />
         </S.IconContainer>
 
-        <S.Input type='text' defaultValue='Novo arquivo.md' />
+        <FileName />
       </S.Header>
 
       <S.ContentContainer>
-        <S.TextArea defaultValue='## Bootcamp Brainn Co.' />
+        <FileEdit />
         <div>
           <h2>Bootcamp Brainn Co.</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adip</p>

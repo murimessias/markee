@@ -41,20 +41,6 @@ export const IconContainer = styled.div`
   `}
 `
 
-export const Input = styled.input`
-  ${({ theme }) => css`
-    align-items: center;
-    border: none;
-    background-color: inherit;
-    display: flex;
-    flex: 1;
-    height: 100%;
-    font-size: ${theme.font.sizes.lg};
-    font-weight: ${theme.font.bold};
-    width: 100%;
-  `}
-`
-
 export const ContentContainer = styled.div`
   ${({ theme }) => css`
     display: grid;
@@ -73,15 +59,5 @@ export const ContentContainer = styled.div`
       top: 0;
       width: 2px;
     }
-  `}
-`
-
-export const TextArea = styled.textarea`
-  ${({ theme }) => css`
-    background-color: inherit;
-    border: none;
-    color: ${theme.colors.black};
-    font-family: ${theme.font.mono};
-    font-size: ${theme.font.sizes.lg};
   `}
 `
