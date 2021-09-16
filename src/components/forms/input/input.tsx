@@ -1,5 +1,5 @@
 // Styles
-import * as S from './styles'
+import * as S from './input-styles'
 
 const Input = () => <S.Wrapper type='text' defaultValue='Novo arquivo.md' />
 

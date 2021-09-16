@@ -1,4 +1,4 @@
-import * as S from './styles'
+import * as S from './logo-styles'
 
 export type LogoProps = {
   version?: 'light' | 'dark'

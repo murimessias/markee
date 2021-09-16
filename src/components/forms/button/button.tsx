@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 // Styles
-import { Wrapper } from './styles'
+import { Wrapper } from './button-styles'
 
 type ButtonProps = {
   cta: string
