@@ -9,6 +9,16 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  button {
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: inherit;
+    font-size: inherit;
+    justify-content: center;
+  }
+
   ${({ theme }) => css`
     html {
       font-size: 62.5%;
