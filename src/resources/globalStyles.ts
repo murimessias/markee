@@ -1,21 +1,23 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   * {
-    border: 0;
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    vertical-align: baseline;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  html {
-    font-size: 62.5%;
-    min-height: 100vh;
-  }
+  ${({ theme }) => css`
+    html {
+      font-size: 62.5%;
+    }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
+    body {
+      font-family: ${theme.font.sans};
+      font-size: ${theme.font.sizes.md};
+    }`
   }
 `
 
