@@ -1,11 +1,12 @@
 import { Grid } from 'components/layout'
+import { Content } from 'components/layout/content/content'
 import { Sidebar } from 'components/layout/sidebar/sidebar'
 
 const App = () => {
   return (
     <Grid>
       <Sidebar />
-      <div>Content</div>
+      <Content />
     </Grid>
   )
 }
