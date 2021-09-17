@@ -1,6 +1,4 @@
-import { Grid } from 'components/layout'
-import { Content } from 'components/layout/content/content'
-import { Sidebar } from 'components/layout/sidebar/sidebar'
+import { Grid, Sidebar, Content } from 'components/layout'
 
 const App = () => {
   return (

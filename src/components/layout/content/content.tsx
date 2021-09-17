@@ -1,5 +1,6 @@
-import { Input as FileName, TextArea as FileEdit } from 'components/forms'
+// Components
 import { FileIcon } from 'ui/icons'
+import { Input as FileName, TextArea as FileEdit } from 'components/forms'
 
 // Styles
 import * as S from './styles'
