@@ -1,0 +1,12 @@
+const RemoveIcon = () => (
+  <svg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 10'>
+    <path
+      d='m1.5.88 7.68 7.68M9.5.88 1.82 8.56'
+      stroke='currentColor'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+    />
+  </svg>
+)
+
+export { RemoveIcon }

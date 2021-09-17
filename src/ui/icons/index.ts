@@ -1,0 +1,6 @@
+export * from './addIcon'
+export * from './circleIcon'
+export * from './fileIcon'
+export * from './loadingIcon'
+export * from './removeIcon'
+export * from './updateIcon'
