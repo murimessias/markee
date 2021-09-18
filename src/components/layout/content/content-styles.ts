@@ -33,7 +33,7 @@ export const IconContainer = styled.div`
   `}
 `
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.section`
   ${({ theme }) => css`
     display: grid;
     gap: 6.4rem;
