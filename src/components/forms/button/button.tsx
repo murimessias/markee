@@ -1,18 +1,19 @@
-import { ReactNode } from 'react'
+import { ReactElement } from 'react'
 
 // Styles
-import { Wrapper } from './button-styles'
+import * as S from './button-styles'
 
+// Types & Props
 type ButtonProps = {
   cta: string
-  icon?: ReactNode
+  icon?: ReactElement
 }
 
 const Button = ({ cta, icon }: ButtonProps) => (
-  <Wrapper hasIcon={!!icon}>
-    {!!icon && icon}
+  <S.ButtonWrapper hasIcon={!!icon}>
+    {!!icon && <div>{icon}</div>}
     <span>{cta}</span>
-  </Wrapper>
+  </S.ButtonWrapper>
 )
 
 export { Button }

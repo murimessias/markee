@@ -1,22 +1,22 @@
 import styled, { css } from 'styled-components/macro'
 
-type WrapperProps = {
+type ButtonWrapperProps = {
   hasIcon: boolean
 }
 
 const wrapperModifiers = {
   withIcon: () => css`
-     svg {
-        width: 1.5rem;
+    div {
+      width: 1.5rem;
 
-        & + span {
-          margin-left: .8rem;
-        }
+      & + span {
+        margin-left: 0.8rem;
+      }
     }
   `,
 }
 
-export const Wrapper = styled.button<WrapperProps>`
+export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${({ theme, hasIcon }) => css`
     background-color: ${theme.colors.primary};
     border-radius: ${theme.border.radius};
