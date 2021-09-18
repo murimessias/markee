@@ -7,10 +7,11 @@ import * as S from './button-styles'
 type ButtonProps = {
   cta: string
   icon?: ReactElement
+  addNewFile: () => void
 }
 
-const Button = ({ cta, icon }: ButtonProps) => (
-  <S.ButtonWrapper hasIcon={!!icon}>
+const Button = ({ cta, icon, addNewFile }: ButtonProps) => (
+  <S.ButtonWrapper hasIcon={!!icon} onClick={addNewFile}>
     {!!icon && <div>{icon}</div>}
     <span>{cta}</span>
   </S.ButtonWrapper>
