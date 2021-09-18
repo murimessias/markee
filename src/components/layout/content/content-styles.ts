@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/macro'
 
-export const Wrapper = styled.div`
+export const ContentWrapper = styled.div`
   ${({ theme }) => css`
     padding: 3.2rem;
     background-color: ${theme.colors.white};
@@ -8,22 +8,14 @@ export const Wrapper = styled.div`
 `
 
 export const Container = styled.div`
- ${({ theme }) => css`
+  ${({ theme }) => css`
     color: ${theme.colors.black};
     display: grid;
-    height:100%;
+    height: 100%;
     grid:
       'header' 4rem
       'content' auto;
-
-    h2 {
-      ${theme.font.sizes['3xl']};
-    }
-
-    p {
-      opacity: 0.75;
-    }
- `}
+  `}
 `
 
 export const Header = styled.header`
@@ -36,12 +28,12 @@ export const IconContainer = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
     height: 2.4rem;
-    margin-right: .8rem;
+    margin-right: 0.8rem;
     width: 2.4rem;
   `}
 `
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.section`
   ${({ theme }) => css`
     display: grid;
     gap: 6.4rem;

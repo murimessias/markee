@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components/macro'
 
-export const Wrapper = styled.aside`
+export const SidebarWrapper = styled.aside`
   ${({ theme }) => css`
     background-color: ${theme.colors.black};
     color: ${theme.colors.white};
     grid-area: sidebar;
-    padding: 0 3.2rem ;
+    padding: 0 3.2rem;
   `}
 `
 
@@ -16,8 +16,9 @@ export const Container = styled.div`
   margin: 0 auto;
 `
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.a`
   align-items: center;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   margin: 4.4rem auto 5.6rem;
@@ -25,7 +26,7 @@ export const LogoContainer = styled.div`
 `
 
 export const FilesContainer = styled.div`
-  > button  {
+  > button {
     margin: 2.4rem 0;
   }
 `
@@ -39,7 +40,7 @@ export const Title = styled.h4`
       content: '';
       background-color: ${theme.colors.primary};
       display: block;
-      height: .2rem;
+      height: 0.2rem;
       position: absolute;
       top: 50%;
       width: 100%;
@@ -53,13 +54,12 @@ export const Title = styled.h4`
       position: relative;
       z-index: 5;
     }
-  `
-  }
+  `}
 `
 
 export const FilenameContainer = styled.div`
   flex: 1;
   padding-left: 2.4rem;
-  opacity: .25;
-  transition: all .250ms ease-in;
+  opacity: 0.25;
+  transition: all 0.25ms ease-in;
 `

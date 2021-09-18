@@ -1,23 +1,24 @@
 // Components
+import { File } from 'components/layout'
 
 // Styles
-import { File, FileProps } from 'components/layout'
 import * as S from './files-styles'
 
 // Types & Props
+import { FileProps } from 'resources/types'
 
 type FilesProps = {
   files: FileProps[]
 }
 
 const FileList = ({ files }: FilesProps) => (
-  <S.Wrapper>
-    <S.List>
+  <S.FilesWrapper>
+    <S.FilesList>
       {files.map((file) => (
         <File key={file.id} {...file} />
       ))}
-    </S.List>
-  </S.Wrapper>
+    </S.FilesList>
+  </S.FilesWrapper>
 )
 
 export { FileList }

@@ -1,6 +1,5 @@
+import { FileProps } from 'resources/types'
 import styled, { css, DefaultTheme } from 'styled-components/macro'
-
-import { FileProps } from './file'
 
 const wrapperModifiers = {
   active: (theme: DefaultTheme) =>

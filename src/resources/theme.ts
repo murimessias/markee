@@ -27,7 +27,7 @@ export const theme: DefaultTheme = {
       xl: '2.0rem',
       '2xl': '2.8rem',
       '3xl': '3.2rem',
-      '4xl': '3.6rem',
+      '4xl': '4rem',
     },
   },
 }

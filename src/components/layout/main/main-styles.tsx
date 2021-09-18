@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-export const Wrapper = styled.main`
+export const MainWrapper = styled.main`
   display: grid;
   grid:
     'sidebar content' 1fr

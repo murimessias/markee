@@ -5,17 +5,12 @@ import { FileIcon, RemoveIcon } from 'ui/icons'
 // Styles
 import * as S from './file-styles'
 
-export type FileProps = {
-  id: string
-  name: string
-  content: string
-  active: boolean
-  status: 'editing' | 'saving' | 'saved'
-}
+// Types & Props
+import { FileProps } from 'resources/types'
 
 const File = ({ id, name, content, active, status }: FileProps) => (
   <S.FileWrapper key={id}>
-    <S.FileContainer active={active} href='/'>
+    <S.FileContainer active={active} href={`/file/${id}`}>
       <S.IconContainer>
         <FileIcon />
       </S.IconContainer>
@@ -26,7 +21,10 @@ const File = ({ id, name, content, active, status }: FileProps) => (
         {active && <Status status={status} />}
 
         {!active && (
-          <S.DeleteButton>
+          <S.DeleteButton
+            aria-label='Remover arquivo'
+            title={`Remover o arquivo ${name}`}
+          >
             <RemoveIcon />
           </S.DeleteButton>
         )}

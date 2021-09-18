@@ -1,5 +1,7 @@
 import * as S from './text-area-styles'
 
-const TextArea = () => <S.Wrapper defaultValue='## Bootcamp Brainn Co.' />
+const TextArea = () => (
+  <S.TextAreaWrapper defaultValue='## Bootcamp Brainn Co.' />
+)
 
 export { TextArea }
