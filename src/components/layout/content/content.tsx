@@ -1,30 +1,32 @@
 // Components
 import { FileIcon } from 'ui/icons'
-import { Input as FileName, TextArea as FileEdit } from 'components/forms'
+import { Input, TextArea } from 'components/forms'
 
 // Styles
-import * as S from './styles'
+import * as S from './content-styles'
+import { Article } from './article'
 
 const Content = () => (
-  <S.Wrapper>
+  <S.ContentWrapper>
     <S.Container>
       <S.Header>
         <S.IconContainer>
           <FileIcon />
         </S.IconContainer>
 
-        <FileName />
+        <Input />
       </S.Header>
 
       <S.ContentContainer>
-        <FileEdit />
-        <div>
+        <TextArea />
+        <Article>
           <h2>Bootcamp Brainn Co.</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adip</p>
-        </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adip</p>
+        </Article>
       </S.ContentContainer>
     </S.Container>
-  </S.Wrapper>
+  </S.ContentWrapper>
 )
 
 export { Content }
