@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/macro'
 
-export const Wrapper = styled.input`
+export const InputWrapper = styled.input`
   ${({ theme }) => css`
     align-items: center;
     border: none;
