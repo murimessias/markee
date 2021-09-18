@@ -1,11 +1,14 @@
 // Components
 import { AddIcon } from 'ui/icons'
 import { Button } from 'components/forms'
-import { FileList, FileProps } from '.'
+import { FileList } from '.'
 import { Logo } from 'ui/logo'
 
 // Styles
-import * as S from './styles'
+import * as S from './sidebar-styles'
+
+// Props & Types
+import { FileProps } from 'resources/types'
 
 // Data
 const files: FileProps[] = [
@@ -40,9 +43,9 @@ const files: FileProps[] = [
 ]
 
 const Sidebar = () => (
-  <S.Wrapper>
+  <S.SidebarWrapper>
     <S.Container>
-      <S.LogoContainer>
+      <S.LogoContainer href='/'>
         <Logo />
       </S.LogoContainer>
 
@@ -56,7 +59,7 @@ const Sidebar = () => (
         <FileList files={files} />
       </S.FilesContainer>
     </S.Container>
-  </S.Wrapper>
+  </S.SidebarWrapper>
 )
 
 export { Sidebar }

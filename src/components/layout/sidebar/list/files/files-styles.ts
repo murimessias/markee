@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro'
 
-export const Wrapper = styled.nav``
+export const FilesWrapper = styled.nav``
 
-export const List = styled.ul``
+export const FilesList = styled.ul`
+  list-style: none;
+`

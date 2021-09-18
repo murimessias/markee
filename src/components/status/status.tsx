@@ -1,32 +1,25 @@
-// Components
-import { CircleIcon, LoadingIcon, UpdateIcon } from 'ui/icons'
-
 // Styles
 import * as S from './status-styles'
 
 // Types & Props
-type StatusProps = {
-  status: 'editing' | 'saving' | 'saved'
+import { StatusProps } from 'resources/types'
+type StatusIconProps = {
+  status: StatusProps
+  className?: string
 }
 
-const Status = ({ status }: StatusProps) => (
-  <S.Wrapper>
-    {status === 'saving' && (
-      <S.IconContainer animation='rotation'>
-        <LoadingIcon />
-      </S.IconContainer>
-    )}
-    {status === 'saved' && (
-      <S.IconContainer>
-        <UpdateIcon />
-      </S.IconContainer>
-    )}
-    {status === 'editing' && (
-      <S.IconContainer animation='pulse'>
-        <CircleIcon />
-      </S.IconContainer>
-    )}
-  </S.Wrapper>
-)
+const Status = ({ status = 'saved', className }: StatusIconProps) => {
+  const Comp = {
+    saving: S.LoadingIcon,
+    saved: S.SavedIcon,
+    editing: S.EditIcon,
+  }[status]
+
+  return (
+    <S.StatusWrapper>
+      <Comp className={className} />
+    </S.StatusWrapper>
+  )
+}
 
 export { Status }
