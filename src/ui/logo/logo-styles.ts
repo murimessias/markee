@@ -12,8 +12,8 @@ const wrapperModifiers = {
   `,
 }
 
-export const Wrapper = styled.div<LogoProps>`
+export const LogoWrapper = styled.div<LogoProps>`
   ${({ theme, version }) => css`
-      ${!!version && wrapperModifiers[version](theme)}
+    ${!!version && wrapperModifiers[version](theme)}
   `}
 `
