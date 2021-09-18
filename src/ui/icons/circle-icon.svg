@@ -1,7 +1,3 @@
-const CircleIcon = () => (
   <svg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9'>
     <circle cx='4' cy='4.686' r='4' fill='currentColor' />
   </svg>
-)
-
-export { CircleIcon }
