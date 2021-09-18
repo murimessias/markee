@@ -1,11 +1,11 @@
-import { Grid, Sidebar, Content } from 'components/layout'
+import { Main, Sidebar, Content } from 'components/layout'
 
 const App = () => {
   return (
-    <Grid>
+    <Main>
       <Sidebar />
       <Content />
-    </Grid>
+    </Main>
   )
 }
 
