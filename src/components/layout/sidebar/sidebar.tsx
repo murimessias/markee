@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import { v4 } from 'uuid'
-
 // Components
 import { AddIcon } from 'ui/icons'
 import { Button } from 'components/forms'
@@ -12,27 +9,12 @@ import * as S from './sidebar-styles'
 
 // Props & Types
 import { FileProps } from 'resources/types'
+type SidebarProps = {
+  files: FileProps[]
+  onNewFile: () => void
+}
 
-const Sidebar = () => {
-  const [files, setFiles] = useState<FileProps[]>([])
-
-  const handleCreateNewFile = () => {
-    setFiles((files) =>
-      files
-        .map((file) => ({
-          ...file,
-          active: false,
-        }))
-        .concat({
-          id: v4(),
-          name: 'Sem título',
-          content: '',
-          active: true,
-          status: 'saved',
-        }),
-    )
-  }
-
+const Sidebar = ({ files, onNewFile }: SidebarProps) => {
   return (
     <S.SidebarWrapper>
       <S.Container>
@@ -48,7 +30,7 @@ const Sidebar = () => {
           <Button
             icon={<AddIcon />}
             cta='Adicionar arquivo'
-            addNewFile={handleCreateNewFile}
+            addNewFile={onNewFile}
           />
 
           <FileList files={files} />
