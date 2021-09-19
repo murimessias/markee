@@ -24,9 +24,18 @@ export const ArticleWrapper = styled.article`
       font-size ${theme.font.sizes.md};
     }
 
+    ul, ol {
+      padding-left: 2.4rem;
+    }
+
+    pre, code {
+      margin: 2.4rem 0;
+      font-family: ${theme.font.mono};
+      font-size: ${theme.font.sizes.md};
+    }
+
     p {
       font-size: ${theme.font.sizes.md};
-      opacity: 0.75;
       margin-top: 1.6rem;
 
       &:last-of-type {
