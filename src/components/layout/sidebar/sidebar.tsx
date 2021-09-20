@@ -14,9 +14,15 @@ type SidebarProps = {
   files: FileProps[]
   onNewFile: () => void
   onSelectFile: (id: string) => (e: MouseEvent) => void
+  onDeleteFile: (id: string) => void
 }
 
-const Sidebar = ({ files, onNewFile, onSelectFile }: SidebarProps) => (
+const Sidebar = ({
+  files,
+  onNewFile,
+  onSelectFile,
+  onDeleteFile,
+}: SidebarProps) => (
   <S.SidebarWrapper>
     <S.SidebarContainer>
       <S.LogoContainer href='/'>
@@ -55,6 +61,7 @@ const Sidebar = ({ files, onNewFile, onSelectFile }: SidebarProps) => (
                       <S.DeleteButton
                         aria-label='Remover arquivo'
                         title={`Remover o arquivo ${name}`}
+                        onClick={() => onDeleteFile(id)}
                       >
                         <RemoveIcon />
                       </S.DeleteButton>

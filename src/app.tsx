@@ -38,12 +38,17 @@ const App = () => {
     )
   }
 
+  const handleDeleteFile = (id: string) => {
+    setFiles((files) => files.filter((file) => file.id !== id))
+  }
+
   return (
     <Main>
       <Sidebar
         files={files}
         onNewFile={handleCreateNewFile}
         onSelectFile={handleSelectFile}
+        onDeleteFile={handleDeleteFile}
       />
       <Content />
     </Main>
