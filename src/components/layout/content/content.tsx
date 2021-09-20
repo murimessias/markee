@@ -1,32 +1,61 @@
+import { ChangeEvent, RefObject } from 'react'
+
 // Components
 import { FileIcon } from 'ui/icons'
-import { Input, TextArea } from 'components/forms'
 
 // Styles
 import * as S from './content-styles'
-import { Article } from './article'
 
-const Content = () => (
-  <S.ContentWrapper>
-    <S.Container>
-      <S.Header>
-        <S.IconContainer>
-          <FileIcon />
-        </S.IconContainer>
+// Types & Props
+import { FileProps } from 'resources/types'
 
-        <Input />
-      </S.Header>
+type ContentProps = {
+  file?: Pick<FileProps, 'id' | 'name' | 'content'>
+  inputRef: RefObject<HTMLInputElement>
+  onChangeFilename: (id: string) => (e: ChangeEvent<HTMLInputElement>) => void
+  onChangeFileContent: (
+    id: string,
+  ) => (e: ChangeEvent<HTMLTextAreaElement>) => void
+}
 
-      <S.ContentContainer>
-        <TextArea />
-        <Article>
-          <h2>Bootcamp Brainn Co.</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adip</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adip</p>
-        </Article>
-      </S.ContentContainer>
-    </S.Container>
-  </S.ContentWrapper>
-)
+const Content = ({
+  file,
+  inputRef,
+  onChangeFilename,
+  onChangeFileContent,
+}: ContentProps) => {
+  if (!file) {
+    return null
+  }
+
+  return (
+    <S.ContentWrapper>
+      <S.Container>
+        <S.Header>
+          <S.IconContainer>
+            <FileIcon />
+          </S.IconContainer>
+
+          <S.Input
+            ref={inputRef}
+            type='text'
+            onChange={onChangeFilename(file.id)}
+            value={file.name}
+            autoFocus
+          />
+        </S.Header>
+
+        <S.ContentContainer>
+          <S.TextArea
+            onChange={onChangeFileContent(file.id)}
+            value={file.content}
+            placeholder='Insira o seu texto aqui!'
+          />
+          <S.Article>{file.content}</S.Article>
+        </S.ContentContainer>
+      </S.Container>
+    </S.ContentWrapper>
+  )
+}
 
 export { Content }
