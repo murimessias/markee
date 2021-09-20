@@ -1,4 +1,5 @@
 import { ChangeEvent, RefObject } from 'react'
+import marked from 'marked'
 
 // Components
 import { FileIcon } from 'ui/icons'
@@ -8,6 +9,21 @@ import * as S from './content-styles'
 
 // Types & Props
 import { FileProps } from 'resources/types'
+
+// Marked configs using HighlightJS
+import('highlight.js').then((hljs) => {
+  const h = hljs.default
+
+  marked.setOptions({
+    highlight: (code, language) => {
+      if (language && h.getLanguage(language)) {
+        return h.highlight(code, { language }).value
+      }
+
+      return h.highlightAuto(code).value
+    },
+  })
+})
 
 type ContentProps = {
   file?: Pick<FileProps, 'id' | 'name' | 'content'>
@@ -51,7 +67,9 @@ const Content = ({
             value={file.content}
             placeholder='Insira o seu texto aqui!'
           />
-          <S.Article>{file.content}</S.Article>
+          <S.Article
+            dangerouslySetInnerHTML={{ __html: marked(file.content) }}
+          />
         </S.ContentContainer>
       </S.Container>
     </S.ContentWrapper>
