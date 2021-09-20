@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, MouseEvent, ChangeEvent } from 'react'
 import { v4 } from 'uuid'
+import localforage from 'localforage'
 
 // Types
 import { FileProps } from 'resources/types'
@@ -53,6 +54,25 @@ export const useFiles = () => {
 
     return () => clearTimeout(timer)
   }, [files])
+
+  useEffect(() => {
+    localforage.setItem('files', files)
+  }, [files])
+
+  useEffect(() => {
+    const getLocalStorage = async () => {
+      const files = await localforage.getItem<FileProps[]>('files')
+
+      if (!files) {
+        handleCreateNewFile()
+        return
+      }
+
+      setFiles(files)
+    }
+
+    getLocalStorage()
+  }, [])
 
   const handleCreateNewFile = () => {
     inputRef.current?.focus()
