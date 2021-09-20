@@ -1,8 +1,7 @@
 // Components
-import { AddIcon } from 'ui/icons'
-import { Button } from 'components/forms'
-import { FileList } from '.'
+import { AddIcon, FileIcon, RemoveIcon } from 'ui/icons'
 import { Logo } from 'ui/logo'
+import { Status } from './status'
 
 // Styles
 import * as S from './sidebar-styles'
@@ -14,30 +13,54 @@ type SidebarProps = {
   onNewFile: () => void
 }
 
-const Sidebar = ({ files, onNewFile }: SidebarProps) => {
-  return (
-    <S.SidebarWrapper>
-      <S.Container>
-        <S.LogoContainer href='/'>
-          <Logo />
-        </S.LogoContainer>
+const Sidebar = ({ files, onNewFile }: SidebarProps) => (
+  <S.SidebarWrapper>
+    <S.SidebarContainer>
+      <S.LogoContainer href='/'>
+        <Logo />
+      </S.LogoContainer>
 
-        <S.FilesContainer>
-          <S.Title>
-            <span>Arquivos</span>
-          </S.Title>
+      <S.FilesContainer>
+        <S.Title>
+          <span>Arquivos</span>
+        </S.Title>
 
-          <Button
-            icon={<AddIcon />}
-            cta='Adicionar arquivo'
-            addNewFile={onNewFile}
-          />
+        <S.ButtonWrapper onClick={onNewFile}>
+          <AddIcon />
+          <span>Adicionar arquivo</span>
+        </S.ButtonWrapper>
 
-          <FileList files={files} />
-        </S.FilesContainer>
-      </S.Container>
-    </S.SidebarWrapper>
-  )
-}
+        <S.FilesWrapper>
+          <S.FilesList>
+            {files.map(({ id, active, status, name }) => (
+              <S.FileWrapper key={id}>
+                <S.FileContainer active={active} href={`/file/${id}`}>
+                  <S.IconContainer>
+                    <FileIcon />
+                  </S.IconContainer>
+
+                  <S.FilenameContainer>{name}</S.FilenameContainer>
+
+                  <S.IconContainer>
+                    {active && <Status status={status} />}
+
+                    {!active && (
+                      <S.DeleteButton
+                        aria-label='Remover arquivo'
+                        title={`Remover o arquivo ${name}`}
+                      >
+                        <RemoveIcon />
+                      </S.DeleteButton>
+                    )}
+                  </S.IconContainer>
+                </S.FileContainer>
+              </S.FileWrapper>
+            ))}
+          </S.FilesList>
+        </S.FilesWrapper>
+      </S.FilesContainer>
+    </S.SidebarContainer>
+  </S.SidebarWrapper>
+)
 
 export { Sidebar }

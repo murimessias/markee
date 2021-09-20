@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components/macro'
+import styled, { css, DefaultTheme } from 'styled-components/macro'
+import { FileProps } from 'resources/types'
 
 export const SidebarWrapper = styled.aside`
   ${({ theme }) => css`
@@ -9,7 +10,7 @@ export const SidebarWrapper = styled.aside`
   `}
 `
 
-export const Container = styled.div`
+export const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 40rem;
@@ -57,9 +58,134 @@ export const Title = styled.h4`
   `}
 `
 
+export const ButtonWrapper = styled.button`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.primary};
+    border-radius: ${theme.border.radius};
+    color: ${theme.colors.black};
+    max-width: 40rem;
+    padding: 1rem 2rem;
+    transition: all 250ms ease-in-out;
+    width: 100%;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    &:active {
+      filter: brightness(0.75);
+    }
+
+    svg {
+      width: 1.5rem;
+
+      & + span {
+        margin-left: 0.8rem;
+      }
+    }
+  `}
+`
+
+export const FilesWrapper = styled.nav``
+
+export const FilesList = styled.ul`
+  list-style: none;
+`
+
+const wrapperModifiers = {
+  active: (theme: DefaultTheme) =>
+    css`
+      background-color: ${theme.colors.lightBlack};
+      color: ${theme.colors.white};
+
+      ${FilenameContainer} {
+        opacity: 1;
+      }
+
+      ${IconContainer} {
+        color: ${theme.colors.primary};
+        opacity: 1;
+      }
+
+      &:hover {
+        ${IconContainer} {
+          color: ${theme.colors.primary};
+        }
+      }
+    `,
+}
+
+type FileContainerProps = Pick<FileProps, 'active'>
+
+export const FileWrapper = styled.li`
+  list-style: none;
+
+  & + li {
+    margin-top: 2.4rem;
+  }
+`
+
+export const FileContainer = styled.a<FileContainerProps>`
+  ${({ theme, active }) => css`
+    align-items: center;
+    color: ${theme.colors.gray};
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 1.6rem;
+    text-decoration: none;
+    transition: all 0.25ms ease-in-out;
+    width: 100%;
+
+    &:hover {
+      border-radius: ${theme.border.radius};
+      background-color: ${theme.colors.lightBlack};
+      color: ${theme.colors.white};
+      cursor: pointer;
+
+      ${FilenameContainer} {
+        opacity: 1;
+      }
+
+      ${IconContainer} {
+        color: ${theme.colors.white};
+        opacity: 1;
+      }
+
+      ${DeleteButton} {
+        display: block;
+      }
+    }
+
+    ${active && wrapperModifiers.active(theme)}
+  `}
+`
+
 export const FilenameContainer = styled.div`
   flex: 1;
   padding-left: 2.4rem;
   opacity: 0.25;
   transition: all 0.25ms ease-in;
+`
+
+export const IconContainer = styled.div`
+  height: 2.4rem;
+  opacity: 0.25;
+  transition: all 0.25ms ease-in-out;
+  width: 2.4rem;
+`
+
+export const DeleteButton = styled.button`
+  ${({ theme }) => css`
+    background-color: inherit;
+    display: none;
+    color: ${theme.colors.white};
+    height: 100%;
+    padding: 0.5rem;
+    width: 100%;
+
+    &:hover {
+      outline: 2px solid ${theme.colors.primary};
+      border-radius: ${theme.border.radius};
+    }
+  `}
 `
