@@ -1,29 +1,27 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent } from 'react'
 
 // Components
 import { FileIcon } from 'ui/icons'
-import { TextArea } from 'components/forms'
 
 // Styles
 import * as S from './content-styles'
-import { Article } from './article'
 
 // Types & Props
 import { FileProps } from 'resources/types'
 
 type ContentProps = {
-  file?: FileProps
+  file?: Pick<FileProps, 'id' | 'name' | 'content'>
   onChangeFilename: (id: string) => (e: ChangeEvent<HTMLInputElement>) => void
+  onChangeFileContent: (
+    id: string,
+  ) => (e: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-const Content = ({ file, onChangeFilename }: ContentProps) => {
-  const [content, setContent] = useState('')
-
-  const handleChangeContent = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    e.preventDefault()
-    setContent(e.target.value)
-  }
-
+const Content = ({
+  file,
+  onChangeFilename,
+  onChangeFileContent,
+}: ContentProps) => {
   if (!file) {
     return null
   }
@@ -38,15 +36,19 @@ const Content = ({ file, onChangeFilename }: ContentProps) => {
 
           <S.Input
             type='text'
-            onChange={onChangeFilename(file.id)}
             value={file.name}
+            onChange={onChangeFilename(file.id)}
             autoFocus
           />
         </S.Header>
 
         <S.ContentContainer>
-          <TextArea handleChangeContent={handleChangeContent} />
-          <Article content={content} />
+          <S.TextArea
+            placeholder='Digite o seu conteúdo aqui!'
+            value={file.content}
+            onChange={onChangeFileContent(file.id)}
+          />
+          <S.Article>{file.content}</S.Article>
         </S.ContentContainer>
       </S.Container>
     </S.ContentWrapper>

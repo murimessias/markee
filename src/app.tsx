@@ -61,6 +61,25 @@ const App = () => {
       )
     }
 
+  const handleChangeContent =
+    (id: string) => (e: ChangeEvent<HTMLTextAreaElement>) => {
+      const textAreaValue = e.target.value
+
+      setFiles((files) =>
+        files.map((file) => {
+          if (file.id === id) {
+            return {
+              ...file,
+              content: textAreaValue,
+              status: 'editing',
+            }
+          }
+
+          return file
+        }),
+      )
+    }
+
   return (
     <Main>
       <Sidebar
@@ -72,6 +91,7 @@ const App = () => {
       <Content
         file={files.find((file) => file.active === true)}
         onChangeFilename={handleChangeFilename}
+        onChangeFileContent={handleChangeContent}
       />
     </Main>
   )
