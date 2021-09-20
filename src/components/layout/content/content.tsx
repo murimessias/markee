@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, RefObject } from 'react'
 
 // Components
 import { FileIcon } from 'ui/icons'
@@ -11,6 +11,7 @@ import { FileProps } from 'resources/types'
 
 type ContentProps = {
   file?: Pick<FileProps, 'id' | 'name' | 'content'>
+  inputRef: RefObject<HTMLInputElement>
   onChangeFilename: (id: string) => (e: ChangeEvent<HTMLInputElement>) => void
   onChangeFileContent: (
     id: string,
@@ -19,6 +20,7 @@ type ContentProps = {
 
 const Content = ({
   file,
+  inputRef,
   onChangeFilename,
   onChangeFileContent,
 }: ContentProps) => {
@@ -35,18 +37,18 @@ const Content = ({
           </S.IconContainer>
 
           <S.Input
+            ref={inputRef}
             type='text'
-            value={file.name}
             onChange={onChangeFilename(file.id)}
+            value={file.name}
             autoFocus
           />
         </S.Header>
 
         <S.ContentContainer>
           <S.TextArea
-            placeholder='Digite o seu conteúdo aqui!'
-            value={file.content}
             onChange={onChangeFileContent(file.id)}
+            value={file.content}
           />
           <S.Article>{file.content}</S.Article>
         </S.ContentContainer>

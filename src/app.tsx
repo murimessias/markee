@@ -1,4 +1,4 @@
-import { useState, MouseEvent, ChangeEvent } from 'react'
+import { useState, useRef, MouseEvent, ChangeEvent } from 'react'
 import { v4 } from 'uuid'
 
 // Components
@@ -9,8 +9,11 @@ import { FileProps } from 'resources/types'
 
 const App = () => {
   const [files, setFiles] = useState<FileProps[]>([])
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const handleCreateNewFile = () => {
+    inputRef.current?.focus()
+
     setFiles((files) =>
       files
         .map((file) => ({
@@ -29,6 +32,8 @@ const App = () => {
 
   const handleSelectFile = (id: string) => (e: MouseEvent) => {
     e.preventDefault()
+
+    inputRef.current?.focus()
 
     setFiles((files) =>
       files.map((file) => ({
@@ -90,6 +95,7 @@ const App = () => {
       />
       <Content
         file={files.find((file) => file.active === true)}
+        inputRef={inputRef}
         onChangeFilename={handleChangeFilename}
         onChangeFileContent={handleChangeContent}
       />
