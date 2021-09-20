@@ -49,6 +49,7 @@ const Content = ({
           <S.TextArea
             onChange={onChangeFileContent(file.id)}
             value={file.content}
+            placeholder='Insira o seu texto aqui!'
           />
           <S.Article>{file.content}</S.Article>
         </S.ContentContainer>
