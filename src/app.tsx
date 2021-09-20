@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, MouseEvent } from 'react'
 import { v4 } from 'uuid'
 
 // Components
@@ -27,9 +27,24 @@ const App = () => {
     )
   }
 
+  const handleSelectFile = (id: string) => (e: MouseEvent) => {
+    e.preventDefault()
+
+    setFiles((files) =>
+      files.map((file) => ({
+        ...file,
+        active: file.id === id,
+      })),
+    )
+  }
+
   return (
     <Main>
-      <Sidebar files={files} onNewFile={handleCreateNewFile} />
+      <Sidebar
+        files={files}
+        onNewFile={handleCreateNewFile}
+        onSelectFile={handleSelectFile}
+      />
       <Content />
     </Main>
   )

@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react'
+
 // Components
 import { AddIcon, FileIcon, RemoveIcon } from 'ui/icons'
 import { Logo } from 'ui/logo'
@@ -11,9 +13,10 @@ import { FileProps } from 'resources/types'
 type SidebarProps = {
   files: FileProps[]
   onNewFile: () => void
+  onSelectFile: (id: string) => (e: MouseEvent) => void
 }
 
-const Sidebar = ({ files, onNewFile }: SidebarProps) => (
+const Sidebar = ({ files, onNewFile, onSelectFile }: SidebarProps) => (
   <S.SidebarWrapper>
     <S.SidebarContainer>
       <S.LogoContainer href='/'>
@@ -34,7 +37,11 @@ const Sidebar = ({ files, onNewFile }: SidebarProps) => (
           <S.FilesList>
             {files.map(({ id, active, status, name }) => (
               <S.FileWrapper key={id}>
-                <S.FileContainer active={active} href={`/file/${id}`}>
+                <S.FileContainer
+                  active={active}
+                  href={`/file/${id}`}
+                  onClick={onSelectFile(id)}
+                >
                   <S.IconContainer>
                     <FileIcon />
                   </S.IconContainer>
