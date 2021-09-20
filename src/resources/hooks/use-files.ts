@@ -74,6 +74,14 @@ export const useFiles = () => {
     getLocalStorage()
   }, [])
 
+  useEffect(() => {
+    const currentFile = files.find((file) => file.active === true)
+
+    if (currentFile) {
+      window.history.replaceState(null, '', `/file/${currentFile.id}`)
+    }
+  }, [files])
+
   const handleCreateNewFile = () => {
     inputRef.current?.focus()
 
