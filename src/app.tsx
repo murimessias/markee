@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from 'react'
+import { useState, MouseEvent, ChangeEvent } from 'react'
 import { v4 } from 'uuid'
 
 // Components
@@ -42,6 +42,25 @@ const App = () => {
     setFiles((files) => files.filter((file) => file.id !== id))
   }
 
+  const handleChangeFilename =
+    (id: string) => (e: ChangeEvent<HTMLInputElement>) => {
+      const inputValue = e.target.value
+
+      setFiles((files) =>
+        files.map((file) => {
+          if (file.id === id) {
+            return {
+              ...file,
+              name: inputValue,
+              status: 'editing',
+            }
+          }
+
+          return file
+        }),
+      )
+    }
+
   return (
     <Main>
       <Sidebar
@@ -50,7 +69,10 @@ const App = () => {
         onSelectFile={handleSelectFile}
         onDeleteFile={handleDeleteFile}
       />
-      <Content />
+      <Content
+        file={files.find((file) => file.active === true)}
+        onChangeFilename={handleChangeFilename}
+      />
     </Main>
   )
 }

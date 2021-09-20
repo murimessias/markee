@@ -2,18 +2,30 @@ import { ChangeEvent, useState } from 'react'
 
 // Components
 import { FileIcon } from 'ui/icons'
-import { Input, TextArea } from 'components/forms'
+import { TextArea } from 'components/forms'
 
 // Styles
 import * as S from './content-styles'
 import { Article } from './article'
 
-const Content = () => {
+// Types & Props
+import { FileProps } from 'resources/types'
+
+type ContentProps = {
+  file?: FileProps
+  onChangeFilename: (id: string) => (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+const Content = ({ file, onChangeFilename }: ContentProps) => {
   const [content, setContent] = useState('')
 
   const handleChangeContent = (e: ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault()
     setContent(e.target.value)
+  }
+
+  if (!file) {
+    return null
   }
 
   return (
@@ -24,7 +36,12 @@ const Content = () => {
             <FileIcon />
           </S.IconContainer>
 
-          <Input />
+          <S.Input
+            type='text'
+            onChange={onChangeFilename(file.id)}
+            value={file.name}
+            autoFocus
+          />
         </S.Header>
 
         <S.ContentContainer>
