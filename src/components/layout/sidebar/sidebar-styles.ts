@@ -7,6 +7,10 @@ export const SidebarWrapper = styled.aside`
     color: ${theme.colors.secondaryTextColor};
     grid-area: sidebar;
     padding: 0 3.2rem;
+
+    @media screen and (max-width: 768px) {
+      padding-bottom: 3.2rem;
+    }
   `}
 `
 
@@ -15,6 +19,10 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   max-width: 40rem;
   margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `
 
 export const LogoContainer = styled.a`
@@ -24,10 +32,19 @@ export const LogoContainer = styled.a`
   justify-content: center;
   margin: 4.4rem auto 5.6rem;
   width: 16rem;
+
+  @media screen and (max-width: 768px) {
+    margin: 4rem auto 4.8rem;
+  }
 `
 
 export const FilesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   > button {
+    align-self: center;
     margin: 2.4rem 0;
   }
 `
@@ -83,6 +100,14 @@ export const ButtonWrapper = styled.button`
         margin-left: 0.8rem;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      bottom: 0;
+      max-width: 24rem;
+      position: fixed;
+      right: 50%;
+      transform: translateX(50%);
+    }
   `}
 `
 
@@ -90,6 +115,8 @@ export const FilesWrapper = styled.nav``
 
 export const FilesList = styled.ul`
   list-style: none;
+  max-width: 40rem;
+  margin: 1.2rem auto;
 `
 
 const wrapperModifiers = {
@@ -105,6 +132,12 @@ const wrapperModifiers = {
       ${IconContainer} {
         color: ${theme.colors.primary};
         opacity: 1;
+      }
+
+      ${DeleteButton} {
+        @media (min-width: 768px) {
+          display: block;
+        }
       }
 
       &:hover {
@@ -131,6 +164,7 @@ export const FileContainer = styled.a<FileContainerProps>`
     color: ${theme.colors.gray};
     display: inline-flex;
     justify-content: space-between;
+    max-width: 40rem;
     padding: 1.6rem;
     text-decoration: none;
     transition: all 0.25ms ease-in-out;
@@ -186,6 +220,10 @@ export const DeleteButton = styled.button`
     &:hover {
       outline: 2px solid ${theme.colors.primary};
       border-radius: ${theme.border.radius};
+    }
+
+    @media (max-width: 768px) {
+      display: block;
     }
   `}
 `

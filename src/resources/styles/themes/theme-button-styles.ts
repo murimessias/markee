@@ -6,12 +6,12 @@ export const ThemeButton = styled.button`
     border-radius: ${theme.border.radius};
     bottom: 2.4rem;
     color: ${theme.colors.black};
-    height: 4rem;
+    height: 4.2rem;
     right: 2.4rem;
     padding: 0.4rem;
     position: fixed;
     transition: all 250ms ease-in-out;
-    width: 4rem;
+    width: 4.2rem;
     z-index: 10;
 
     &:hover {

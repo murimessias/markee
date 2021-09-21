@@ -16,6 +16,11 @@ export const Container = styled.div`
       'header' 4rem
       'content' auto;
   `}
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const Header = styled.header`
@@ -51,6 +56,15 @@ export const ContentContainer = styled.section`
       transform: translateX(-50%) scaleY(-0.95);
       top: 0;
       width: 2px;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+
+      &:before {
+        display: none;
+      }
     }
   `}
 `
@@ -125,5 +139,10 @@ export const TextArea = styled.textarea`
     font-family: ${theme.font.mono};
     font-size: ${theme.font.sizes.lg};
     resize: none;
+
+    @media screen and (max-width: 768px) {
+      border-bottom: 2px solid ${theme.colors.gray};
+      min-height: 18rem;
+    }
   `}
 `
