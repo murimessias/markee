@@ -107,6 +107,7 @@ export const ButtonWrapper = styled.button`
       position: fixed;
       right: 50%;
       transform: translateX(50%);
+      z-index: 1;
     }
   `}
 `
@@ -224,6 +225,39 @@ export const DeleteButton = styled.button`
 
     @media (max-width: 768px) {
       display: block;
+    }
+  `}
+`
+
+export const TipsContainer = styled.div`
+  margin-top: 1.6rem;
+`
+
+export const ModalButtonWrapper = styled.button`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.primary};
+    border-radius: ${theme.border.radius};
+    color: ${theme.colors.black};
+    margin-top: 1.6rem;
+    max-width: 40rem;
+    padding: 1rem 2rem;
+    transition: all 250ms ease-in-out;
+    width: 100%;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    &:active {
+      filter: brightness(0.75);
+    }
+
+    svg {
+      width: 1.5rem;
+
+      & + span {
+        margin-left: 0.8rem;
+      }
     }
   `}
 `

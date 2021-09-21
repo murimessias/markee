@@ -8,7 +8,6 @@ export const ThemeButton = styled.button`
     color: ${theme.colors.black};
     height: 4.2rem;
     right: 2.4rem;
-    padding: 0.4rem;
     position: fixed;
     transition: all 250ms ease-in-out;
     width: 4.2rem;
@@ -19,8 +18,8 @@ export const ThemeButton = styled.button`
     }
 
     svg {
-      width: 100%;
-      height: 100%;
+      width: 3.2rem;
+      height: 3.2rem;
     }
   `}
 `

@@ -87,6 +87,9 @@ export const Input = styled.input`
 export const Article = styled.article`
   ${({ theme }) => css`
     color: ${theme.colors.textColor};
+    overflow: hidden;
+    width: 100%;
+
 
     h1 {
       font-size: ${theme.font.sizes['4xl']};
@@ -126,6 +129,28 @@ export const Article = styled.article`
 
       &:last-of-type {
         margin-bottom: 1.6rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 {
+      font-size: ${theme.font.sizes['3xl']};
+      }
+
+      h2 {
+        font-size: ${theme.font.sizes['2xl']};
+      }
+
+      h3 {
+        font-size: ${theme.font.sizes.xl};
+      }
+
+      h4 {
+        font-size: ${theme.font.sizes.md};
+      }
+
+      h5, h6 {
+        font-size ${theme.font.sizes.sm};
       }
     }
   `}

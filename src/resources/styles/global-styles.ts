@@ -19,9 +19,15 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
   }
 
+
+
   ${({ theme }) => css`
     html {
       font-size: 62.5%;
+    }
+
+    .ReactModal__Overlay {
+      z-index: 10;
     }
 
     body {
