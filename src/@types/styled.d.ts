@@ -5,11 +5,14 @@ declare module 'styled-components' {
     }
 
     colors: {
+      background: string
+      backgroundBlack: string
       black: string
       gray: string
       lightBlack: string
       primary: string
-      white: string
+      textColor: string
+      secondaryTextColor: string
     }
 
     font: {
@@ -27,8 +30,8 @@ declare module 'styled-components' {
         '2xl': string
         '3xl': string
         '4xl': string
-      },
-    },
+      }
+    }
   }
 }
 

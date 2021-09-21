@@ -6,6 +6,7 @@ import { FileIcon } from 'ui/icons'
 
 // Styles
 import * as S from './content-styles'
+import 'highlight.js/styles/tomorrow-night-bright.css'
 
 // Types & Props
 import { FileProps } from 'resources/types'

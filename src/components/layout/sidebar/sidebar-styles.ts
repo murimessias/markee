@@ -3,8 +3,8 @@ import { FileProps } from 'resources/types'
 
 export const SidebarWrapper = styled.aside`
   ${({ theme }) => css`
-    background-color: ${theme.colors.black};
-    color: ${theme.colors.white};
+    background-color: ${theme.colors.backgroundBlack};
+    color: ${theme.colors.secondaryTextColor};
     grid-area: sidebar;
     padding: 0 3.2rem;
   `}
@@ -96,7 +96,7 @@ const wrapperModifiers = {
   active: (theme: DefaultTheme) =>
     css`
       background-color: ${theme.colors.lightBlack};
-      color: ${theme.colors.white};
+      color: ${theme.colors.secondaryTextColor};
 
       ${FilenameContainer} {
         opacity: 1;
@@ -139,7 +139,7 @@ export const FileContainer = styled.a<FileContainerProps>`
     &:hover {
       border-radius: ${theme.border.radius};
       background-color: ${theme.colors.lightBlack};
-      color: ${theme.colors.white};
+      color: ${theme.colors.secondaryTextColor};
       cursor: pointer;
 
       ${FilenameContainer} {
@@ -147,7 +147,7 @@ export const FileContainer = styled.a<FileContainerProps>`
       }
 
       ${IconContainer} {
-        color: ${theme.colors.white};
+        color: ${theme.colors.secondaryTextColor};
         opacity: 1;
       }
 
@@ -178,7 +178,7 @@ export const DeleteButton = styled.button`
   ${({ theme }) => css`
     background-color: inherit;
     display: none;
-    color: ${theme.colors.white};
+    color: ${theme.colors.secondaryTextColor};
     height: 100%;
     padding: 0.5rem;
     width: 100%;
