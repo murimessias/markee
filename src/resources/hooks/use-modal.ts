@@ -5,7 +5,6 @@ export const useModal = () => {
 
   const handleOpenModal = () => {
     setModalIsOpen(!modalIsOpen)
-    console.log('oi')
   }
 
   return {

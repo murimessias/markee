@@ -10,12 +10,39 @@ export const useFiles = () => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
+    localforage.setItem('files', files)
+  }, [files])
+
+  useEffect(() => {
+    const getLocalStorage = async () => {
+      const files = await localforage.getItem<FileProps[]>('files')
+
+      if (files) {
+        setFiles(files)
+        return
+      }
+
+      handleCreateNewFile()
+    }
+
+    getLocalStorage()
+  }, [])
+
+  useEffect(() => {
+    const activeFile = files.find((file) => file.active === true)
+
+    if (activeFile) {
+      window.history.replaceState(null, '', `/file/${activeFile.id}`)
+    }
+  }, [files])
+
+  useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
 
     const changeStatus = () => {
-      const currentFile = files.find((file) => file.active === true)
+      const activeFile = files.find((file) => file.active === true)
 
-      if (!currentFile || currentFile.status !== 'editing') {
+      if (!activeFile || activeFile.status !== 'editing') {
         return
       }
 
@@ -53,33 +80,6 @@ export const useFiles = () => {
     changeStatus()
 
     return () => clearTimeout(timer)
-  }, [files])
-
-  useEffect(() => {
-    localforage.setItem('files', files)
-  }, [files])
-
-  useEffect(() => {
-    const getLocalStorage = async () => {
-      const files = await localforage.getItem<FileProps[]>('files')
-
-      if (!files) {
-        handleCreateNewFile()
-        return
-      }
-
-      setFiles(files)
-    }
-
-    getLocalStorage()
-  }, [])
-
-  useEffect(() => {
-    const currentFile = files.find((file) => file.active === true)
-
-    if (currentFile) {
-      window.history.replaceState(null, '', `/file/${currentFile.id}`)
-    }
   }, [files])
 
   const handleCreateNewFile = () => {
