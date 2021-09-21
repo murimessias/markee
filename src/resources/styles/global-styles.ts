@@ -27,8 +27,14 @@ const GlobalStyle = createGlobalStyle`
     body {
       font-family: ${theme.font.sans};
       font-size: ${theme.font.sizes.md};
-    }`
-  }
+    }
+
+    @media screen and (max-width: 768px) {
+      html {
+        font-size: 56.65%;
+      }
+    }
+  `}
 `
 
 export default GlobalStyle

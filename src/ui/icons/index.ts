@@ -1,6 +1,7 @@
 export { ReactComponent as AddIcon } from './add-icon.svg'
 export { ReactComponent as CircleIcon } from './circle-icon.svg'
 export { ReactComponent as FileIcon } from './file-icon.svg'
+export { ReactComponent as LightIcon } from './light-icon.svg'
 export { ReactComponent as LoadingIcon } from './loading-icon.svg'
 export { ReactComponent as RemoveIcon } from './remove-icon.svg'
 export { ReactComponent as SavedIcon } from './saved-icon.svg'

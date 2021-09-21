@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/macro'
 export const ContentWrapper = styled.div`
   ${({ theme }) => css`
     padding: 3.2rem;
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.background};
   `}
 `
 
@@ -16,6 +16,11 @@ export const Container = styled.div`
       'header' 4rem
       'content' auto;
   `}
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const Header = styled.header`
@@ -47,9 +52,19 @@ export const ContentContainer = styled.section`
       height: 100%;
       left: 50%;
       position: absolute;
+      opacity: 0.5;
       transform: translateX(-50%) scaleY(-0.95);
       top: 0;
       width: 2px;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+
+      &:before {
+        display: none;
+      }
     }
   `}
 `
@@ -59,6 +74,7 @@ export const Input = styled.input`
     align-items: center;
     border: none;
     background-color: inherit;
+    color: ${theme.colors.textColor};
     display: flex;
     flex: 1;
     height: 100%;
@@ -70,6 +86,8 @@ export const Input = styled.input`
 
 export const Article = styled.article`
   ${({ theme }) => css`
+    color: ${theme.colors.textColor};
+
     h1 {
       font-size: ${theme.font.sizes['4xl']};
       line-height: calc(${theme.font.sizes['4xl']} * 1.15);
@@ -117,9 +135,14 @@ export const TextArea = styled.textarea`
   ${({ theme }) => css`
     background: transparent;
     border: none;
-    color: ${theme.colors.black};
+    color: ${theme.colors.textColor};
     font-family: ${theme.font.mono};
     font-size: ${theme.font.sizes.lg};
     resize: none;
+
+    @media screen and (max-width: 768px) {
+      border-bottom: 2px solid ${theme.colors.gray};
+      min-height: 18rem;
+    }
   `}
 `

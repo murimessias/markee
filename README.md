@@ -1,10 +1,3 @@
-<p align="center">
- <a href="#-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
- <a href="#-tech">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#-getting-start">Getting Start</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#-license">License</a>
-</p>
-
 ## 💻 About
 
 Project made during "ReactJS Bootcamp" from Brainn.Co Academy. The main concept is an app to create quick notes using Markdown Language with a preview and features to save in your web browser history.
@@ -24,7 +17,7 @@ Do the following steps to use this project as yours.
 1. 🧬 Clone this repository in your local machine:
 
 ```
-git clone https://github.com/joaogabriel-sg/markee-app.git
+git clone https://github.com/murimessias/markee.git
 
 ```
 

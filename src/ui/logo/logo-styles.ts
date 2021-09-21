@@ -4,7 +4,7 @@ import { LogoProps } from './logo'
 
 const wrapperModifiers = {
   light: (theme: DefaultTheme) => css`
-    color: ${theme.colors.white};
+    color: ${theme.colors.secondaryTextColor};
   `,
 
   dark: (theme: DefaultTheme) => css`
