@@ -67,7 +67,7 @@ export const Title = styled.h4`
     }
 
     span {
-      background-color: ${theme.colors.black};
+      background-color: ${theme.colors.backgroundBlack};
       margin-left: 1.6rem;
       padding: 0 1.2rem;
       position: relative;
