@@ -34,7 +34,8 @@ export const LogoContainer = styled.a`
   width: 16rem;
 
   @media screen and (max-width: 768px) {
-    margin: 4rem auto 4.8rem;
+    margin: 3.2rem auto 4rem;
+    width: 12rem;
   }
 `
 
@@ -112,12 +113,58 @@ export const ButtonWrapper = styled.button`
   `}
 `
 
-export const FilesWrapper = styled.nav``
+export const FilesWrapper = styled.nav`
+  ${({ theme }) => css`
+    position: relative;
+    width: 100%;
+
+    @media screen and (max-width: 768px) {
+      &:before {
+        background: linear-gradient(
+          90deg,
+          ${theme.colors.backgroundBlack} 0%,
+          rgba(26, 36, 51, 0) 100%
+        );
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 20px;
+        z-index: 2;
+      }
+
+      &:after {
+        background: linear-gradient(
+          270deg,
+          ${theme.colors.backgroundBlack} 0%,
+          rgba(26, 36, 51, 0) 100%
+        );
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20px;
+        z-index: 2;
+      }
+    }
+  `}
+`
 
 export const FilesList = styled.ul`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
   list-style: none;
-  max-width: 40rem;
-  margin: 1.2rem auto;
+  overflow: initial;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: row;
+    justify-content: start;
+    overflow: auto;
+  }
 `
 
 const wrapperModifiers = {
@@ -157,6 +204,13 @@ export const FileWrapper = styled.li`
   & + li {
     margin-top: 2.4rem;
   }
+
+  @media screen and (max-width: 768px) {
+    & + li {
+      margin-top: 0rem;
+      margin-left: 1.4rem;
+    }
+  }
 `
 
 export const FileContainer = styled.a<FileContainerProps>`
@@ -165,11 +219,16 @@ export const FileContainer = styled.a<FileContainerProps>`
     color: ${theme.colors.gray};
     display: inline-flex;
     justify-content: space-between;
-    max-width: 40rem;
     padding: 1.6rem;
+    overflow: hidden;
     text-decoration: none;
     transition: all 0.25ms ease-in-out;
     width: 100%;
+
+    @media screen and (max-width: 768px) {
+      margin: 1.6rem 0;
+      min-width: 20rem;
+    }
 
     &:hover {
       border-radius: ${theme.border.radius};
@@ -230,11 +289,14 @@ export const DeleteButton = styled.button`
 `
 
 export const TipsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 1.6rem;
 `
 
 export const ModalButtonWrapper = styled.button`
   ${({ theme }) => css`
+    align-self: center;
     background-color: ${theme.colors.primary};
     border-radius: ${theme.border.radius};
     color: ${theme.colors.black};
