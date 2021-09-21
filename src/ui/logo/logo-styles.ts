@@ -14,6 +14,8 @@ const wrapperModifiers = {
 
 export const LogoWrapper = styled.div<LogoProps>`
   ${({ theme, version }) => css`
+    width: 100%;
+    height: 100%;
     ${!!version && wrapperModifiers[version](theme)}
   `}
 `
