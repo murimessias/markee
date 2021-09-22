@@ -259,6 +259,10 @@ export const FilenameContainer = styled.div`
   padding-left: 2.4rem;
   opacity: 0.25;
   transition: all 0.25ms ease-in;
+
+  @media screen and (max-width: 768px) {
+    white-space: nowrap;
+  }
 `
 
 export const IconContainer = styled.div`
