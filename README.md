@@ -1,7 +1,3 @@
-<h1 align="center">
-  <img alt="markee-app" title="markee-app" src="./.github/markee-logo.svg" width="220px" />
-</h1>
-
 <img src="./.github/markee-presentation.png" />
 
 ## 💻 About
