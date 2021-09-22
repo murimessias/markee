@@ -1,3 +1,9 @@
+<h1 align="center">
+  <img alt="markee-app" title="markee-app" src="./.github/markee-logo.svg" width="220px" />
+</h1>
+
+<img src="./.github/markee-presentation.png" />
+
 ## 💻 About
 
 Project made during "ReactJS Bootcamp" from Brainn.Co Academy. The main concept is an app to create quick notes using Markdown Language with a preview and features to save in your web browser history.
